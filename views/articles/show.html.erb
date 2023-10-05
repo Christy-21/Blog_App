@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 100px;
+    }
+
+    .notice {
+      color: green;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .article-container {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 15px;
+    }
+
+    .article-container p {
+      margin: 0;
+      padding: 0;
+    }
+
+    .button-container {
+      text-align: center;
+    }
+
+    .button-container a,
+    .button-container button {
+      display: inline-block;
+      margin-right: 10px;
+      padding: 10px 8px;
+      background-color: #4caf50;
+      color: #fff;
+      text-decoration: none;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .button-container a:last-child,
+    .button-container button:last-child {
+      margin-right: 0;
+    }
+
+    .button-container a:hover,
+    .button-container button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+  <center>
+  <h1>Shows the Articles</h1>
+  </center>
+    <p class="notice"><%= notice %></p>
+ 
+<center>
+    <div class="article-container">
+      <p><strong>Title:</strong> <%= @article.title %></p>
+      <p><strong>Description:</strong> <%= @article.description %></p>
+    </div>
+</center>
+    <div class="button-container">
+      <%= link_to "Edit this article", edit_article_path(@article) %>
+      <%= link_to "Back to articles", articles_path %>
+      <%= button_to "Destroy this article", @article, method: :delete %>
+    </div>
+  </div>
+</body>
+</html>

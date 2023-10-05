@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .button-container {
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .button-container a {
+      display: inline-block;
+      margin-right: 10px;
+      padding: 10px 20px;
+      background-color: #4caf50;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+
+    .button-container a:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Editing article</h1>
+
+    <%= render "form", article: @article %>
+
+    <div class="button-container">
+      <%= link_to "Show this article", @article %>
+      <%= link_to "Back to articles", articles_path %>
+    </div>
+  </div>
+</body>
+</html>

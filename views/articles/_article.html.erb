@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 150px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    #article-container {
+      background-color: #f8f8f8;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    strong {
+      color: #333;
+    }
+
+    p {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Article Details</h1>
+
+    <div id="<%= dom_id article %>" class="article-container">
+      <p>
+        <strong>Title:</strong>
+        <%= article.title %>
+      </p>
+
+      <p>
+        <strong>Description:</strong>
+        <%= article.description %>
+      </p>
+    </div>
+  </div>
+</body>
+</html>

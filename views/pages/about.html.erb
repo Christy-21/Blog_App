@@ -1,0 +1,50 @@
+<center>
+<h1>ABOUT US</h1>
+<canvas id="myCanvas" width="1000" height="650" style="border:1px solid grey">
+</canvas>
+
+<script>
+const c = document.getElementById("myCanvas");
+const ct = c.getContext("2d");
+
+ct.globalAlpha = 0.2;
+ct.fillStyle = "green";
+ct.fillRect(0, 0, c.width, c.height);
+
+ct.font = "27px Arial";
+
+ct.fillStyle = "#000000"; 
+ct.textAlign = "center";
+
+const aboutText = "Welcome to our Blogging Platform!\n\nWe are passionate bloggers dedicated to providing valuable content to our readers. With a focus on various topics including technology, lifestyle, and travel, we strive to deliver informative and engaging articles.\n\nJoin us on this blogging journey as we share insights, tips, and stories that inspire and inform. Stay tuned for regular updates and be a part of our vibrant blogging community.\n\nHappy reading and happy blogging!";
+
+const x = c.width / 2;
+const y = c.height / 5; // Adjust the vertical position here
+
+wrapText(ct, aboutText, x, y, 550, 35);
+
+function wrapText(context, text, x, y, maxWidth, lineHeight) {
+  const words = text.split(' ');
+  let line = '';
+
+  for (let i = 0; i < words.length; i++) {
+    const testLine = line + words[i] + ' ';
+    const metrics = context.measureText(testLine);
+    const testWidth = metrics.width;
+
+    if (testWidth > maxWidth && i > 0) {
+      context.fillText(line, x, y);
+      line = words[i] + ' ';
+      y += lineHeight;
+    } else {
+      line = testLine;
+    }
+  }
+
+  context.fillText(line, x, y);
+}
+
+
+
+</script>
+</center>

@@ -1,0 +1,109 @@
+<head javascript_include_tag "vendor/modernizr">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<style>
+  .container {
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 5px;
+  }
+
+  h1 {
+    color: #333;
+    text-align: center;
+  }
+
+  .article-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
+    margin-top: 20px;
+  }
+
+  .article {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  h3 {
+    color: #333;
+    margin-bottom: 5px;
+  }
+
+  p {
+    color: #777;
+    margin-bottom: 10px;
+  }
+
+  .actions {
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .action-link {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-right: 5px;
+  }
+
+  .action-link:hover {
+    background-color: #0056b3;
+  }
+
+  .delete-link {
+    background-color: #dc3545;
+  }
+
+  .delete-link:hover {
+    background-color: #a51c2f;
+  }
+
+  .create-link {
+    background-color: #28a745;
+  }
+
+  .create-link:hover {
+    background-color: #1f7d38;
+  }
+</style>
+
+<body>
+
+  <div class="container">
+  
+  <h1><%= t('greeting') %></h1>
+  <h1><%= t('hello') %></h1>
+
+
+    <h1>Articles Listing Page</h1>
+    <%= form_tag destroy_user_session_path, method: :delete do %>
+  <%= submit_tag 'Sign Out' %>
+<% end %>
+
+    <div class="article-list">
+  <% @articles.each do |article| %>
+    <div class="article">
+      <h3><%= article.title %></h3>
+      <p><%= article.description %></p>
+
+          <div class="actions">
+            <%= link_to 'Show', article_path(article), class: 'action-link' %>
+            <%= link_to 'Edit', edit_article_path(article), class: 'action-link' %>
+            <%= link_to 'Delete', article_path(article), method: :delete, data: { confirm: "Are you sure?" }, class: 'action-link delete-link'  %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <p style="text-align: center;">
+      <%= link_to 'Create New Article', new_article_path, class: 'action-link create-link' %>
+    </p>
+  </div>
+</body>
